@@ -1,0 +1,83 @@
+﻿@model HealthCareSupport02.Models.Solution
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div>
+    <h4>Solution</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Doctor.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Doctor.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Patient.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patient.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProblemName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProblemName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Solution1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Solution1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.File1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.File1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.File2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.File2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.File3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.File3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.File4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.File4)
+        </dd>
+
+    </dl>
+</div>
+@if (Session["Palogin"].ToString() != "")
+{
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

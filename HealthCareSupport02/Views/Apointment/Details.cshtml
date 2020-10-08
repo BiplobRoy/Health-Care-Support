@@ -1,0 +1,45 @@
+﻿@model HealthCareSupport02.Models.Apointment
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div>
+    <h4>Apointment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProblemName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProblemName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Doctor.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Doctor.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Patient.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patient.Name)
+        </dd>
+
+    </dl>
+</div>
+@if (Session["Dologin"].ToString() != "")
+            {
+<p>
+    <a href="@Url.Action("Create", "ApointmentFixed", new { dd = Model.Id, p = Model.PatientId, d =((HealthCareSupport02.Models.Doctor)Session["Do"]).Id })">Fixed</a>
+</p>
+            }
+<p>
+    @Html.ActionLink("Back to List", "Index")
+    </p>

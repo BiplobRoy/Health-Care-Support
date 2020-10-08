@@ -1,0 +1,61 @@
+﻿@model HealthCareSupport02.Models.DataRecord
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div>
+    <h4>DataRecord</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Patient.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patient.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProblemDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProblemDate)
+        </dd>
+
+        @*<dt>
+                @Html.DisplayNameFor(model => model.PrescriptionImg)
+            </dt>*@
+
+        <dd>
+            <img src="~/Upload/Prescription/@(Model.Id.ToString()+"_"+Model.PrescriptionImg)" class="img-rounded" style="height:300px;width:600px" /><h4>Prescription</h4>
+        </dd>
+
+        @*<dt>
+                @Html.DisplayNameFor(model => model.ReportImag)
+            </dt>*@
+
+        <dd>
+            <img src="~/Upload/Report/@(Model.Id.ToString()+"_"+Model.ReportImag)" class="img-rounded" style="height:300px;width:600px" /><h4>Report</h4>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Details)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Details)
+        </dd>
+    </dl>
+</div>
+@if (Session["Palogin"].ToString() != "")
+{
+<p>
+    @Html.ActionLink("Delete", "Delete", new { id = Model.Id, p = Model.PatientId }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id, p = Model.PatientId }) |
+</p>
+}
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

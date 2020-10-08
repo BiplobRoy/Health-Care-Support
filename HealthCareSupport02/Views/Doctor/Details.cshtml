@@ -1,0 +1,160 @@
+﻿@model HealthCareSupport02.Models.Doctor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+@if (Session["Dologin"].ToString() != "")
+{
+    <div class="form-group" style="text-align:right">
+        <h4><span class="alert-success"><a class="btn btn-default" href="http://localhost:11391/Messege/Index">@Session["NT"] &raquo;</a></span></h4>
+        <h4><span class="alert-success"><a class="btn btn-default" href="http://localhost:11391/Apointment/Index">@Session["AP"] &raquo;</a></span></h4>
+    </div>
+}
+
+@if (Session["Palogin"].ToString() != "")
+{
+    <div>
+        <p>
+            <a class="btn btn-success" href="@Url.Action("Create", "Messege", new { d = Model.Id, p = ((HealthCareSupport02.Models.Patient)Session["Pa"]).Id })">Message</a>
+            <a class="btn btn-success" href="@Url.Action("Create", "Apointment", new { d = Model.Id, p = ((HealthCareSupport02.Models.Patient)Session["Pa"]).Id })">Apointment</a>
+        </p>
+    </div>
+}
+
+<div class="jumbotron" style="width:100%">
+    <img src="~/Upload/DoctorPhoto/@(Model.Id.ToString()+"_"+Model.DoctorPhoto)" class="img-circle" style="height:250px; width:250px" />
+    <h4>
+        Doctor: @Html.DisplayFor(model => model.Name)
+    </h4>
+</div>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfBirth)
+        </dd>
+
+        @if (Session["Adlogin"].ToString() != "" || Session["Dologin"].ToString() != "")
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.BMDC_NO)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BMDC_NO)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.NId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Phone)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Phone)
+            </dd>
+        }
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Skype)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Skype)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hospital)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hospital)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ChemberAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChemberAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BloodGroup.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BloodGroup.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Specialization.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Specialization.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubCity.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubCity.Name)
+        </dd>
+
+    </dl>
+</div>
+@if (Session["Dologin"].ToString() != "")
+{
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    </p>
+}
+@if (Session["Adlogin"].ToString() != "")
+{
+    <p>
+        @Html.ActionLink("Delete", "Delete", new { id = Model.Id }) |
+    </p>
+}
+@*@if (Session["Palogin"].ToString() != "")
+    {
+        <p>
+            <a href="@Url.Action("Create", "Messege", new { d = Model.Id, p = ((HealthCareSupport02.Models.Patient)Session["Pa"]).Id })">Message</a> |
+            <a href="@Url.Action("Create", "Apointment", new { d = Model.Id, p = ((HealthCareSupport02.Models.Patient)Session["Pa"]).Id })">Apointment</a>
+        </p>
+    }*@

@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @{
+                        if (Session["AdLogin"].ToString() == "" && Session["Dologin"].ToString() == "")
+                        {
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Hospital", "Index", "Hospital")</li>
+                            <li>@Html.ActionLink("Health Tips", "Index", "HealthTip")</li>
+                        }
+                        if (Session["Adlogin"].ToString() != "")
+                        {
+                            <li>@Html.ActionLink("City", "Index", "City")</li>
+                            <li>@Html.ActionLink("Area", "Index", "SubCity")</li>
+                            <li>@Html.ActionLink("B_Donor", "Index", "BloodDonare")</li>
+                            <li>@Html.ActionLink("Ambulance", "Index", "Ambulance")</li>
+                            <li>@Html.ActionLink("M_Group", "Index", "MedicineGroup")</li>
+                            <li>@Html.ActionLink("Company", "Index", "Company")</li>
+                            <li>@Html.ActionLink("Medicine", "Index", "Medicine")</li>
+                            <li>@Html.ActionLink("Specialization", "Index", "Specialization")</li>
+                            <li>@Html.ActionLink("Hospital", "Index", "Hospital")</li>
+                            <li>@Html.ActionLink("D_List", "Index", "Doctor")</li>
+                            <li>@Html.ActionLink("P_List", "Index", "Patient")</li>
+                            <li>@Html.ActionLink("A_List", "Index", "Admin")</li>
+
+                        }
+                        if (Session["Dologin"].ToString() != "")
+                        {
+                            <li>@Html.ActionLink("Health Tips", "Index", "HealthTip")</li>
+                            <li>@Html.ActionLink("Apointment", "Index", "ApointmentFixed")</li>
+                            <li>@Html.ActionLink("Solution", "Index", "Solution")</li>
+                            <li>@Html.ActionLink("Contuct Us", "Index", "Admin")</li>
+                        }
+                        if (Session["Palogin"].ToString() != "")
+                        {
+                            <li>@Html.ActionLink("Medicine", "Index", "Medicine")</li>
+                            <li>@Html.ActionLink("Doctor", "Index", "Doctor")</li>
+                            <li>@Html.ActionLink("Ambulance", "Index", "Ambulance")</li>
+                            <li>@Html.ActionLink("Blood Donor", "Index", "BloodDonare")</li>
+                            <li>@Html.ActionLink("Data Record", "Index", "DataRecord")</li>
+                            <li>@Html.ActionLink("Contuct Us", "Index", "Admin")</li>
+                        }
+                    }
+                </ul>
+                @Html.Partial("_Login")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Health Care Support</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

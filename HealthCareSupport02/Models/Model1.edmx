@@ -1,0 +1,1737 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dbHCS02Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PassWord" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Level" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ambulance">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DriverName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CityId" Type="int" Nullable="false" />
+          <Property Name="SubCityId" Type="int" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="CarNumber" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Hospital" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Apointment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DoctorId" Type="int" Nullable="false" />
+          <Property Name="PatientId" Type="int" Nullable="false" />
+          <Property Name="ProblemName" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ApointmentFixed">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DoctorId" Type="int" Nullable="false" />
+          <Property Name="PatientId" Type="int" Nullable="false" />
+          <Property Name="Location" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Time" Type="time" Precision="7" />
+        </EntityType>
+        <EntityType Name="BloodDonare">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="GenderId" Type="int" Nullable="false" />
+          <Property Name="BloodGroupId" Type="int" Nullable="false" />
+          <Property Name="CityId" Type="int" Nullable="false" />
+          <Property Name="SubCityId" Type="int" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BloodGroup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DataRecord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatientId" Type="int" Nullable="false" />
+          <Property Name="ProblemDate" Type="date" Nullable="false" />
+          <Property Name="PrescriptionImg" Type="varchar" MaxLength="200" />
+          <Property Name="ReportImag" Type="varchar" MaxLength="200" />
+          <Property Name="Details" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="Doctor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DateOfBirth" Type="date" />
+          <Property Name="GenderId" Type="int" Nullable="false" />
+          <Property Name="BloodGroupId" Type="int" Nullable="false" />
+          <Property Name="BMDC_NO" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="SpecializationId" Type="int" Nullable="false" />
+          <Property Name="CityId" Type="int" Nullable="false" />
+          <Property Name="SubCityId" Type="int" Nullable="false" />
+          <Property Name="NId" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Skype" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Hospital" Type="varchar" MaxLength="100" />
+          <Property Name="ChemberAddress" Type="varchar" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PassWord" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="DoctorPhoto" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HealthTips">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Details" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Hospital">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CityId" Type="int" Nullable="false" />
+          <Property Name="SubCItyId" Type="int" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="WebSite" Type="varchar" MaxLength="100" />
+          <Property Name="Specialization" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Details" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="Medicine">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MedicineGroupId" Type="int" Nullable="false" />
+          <Property Name="CompanyId" Type="int" Nullable="false" />
+          <Property Name="Details" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="MedicineGroup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Messege">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DoctorId" Type="int" Nullable="false" />
+          <Property Name="PatientId" Type="int" Nullable="false" />
+          <Property Name="ProblemName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ProblemDate" Type="date" Nullable="false" />
+          <Property Name="Details" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="File1" Type="varchar" MaxLength="200" />
+          <Property Name="File2" Type="varchar" MaxLength="200" />
+          <Property Name="File3" Type="varchar" MaxLength="200" />
+          <Property Name="File4" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DateOfBirth" Type="date" Nullable="false" />
+          <Property Name="GenderId" Type="int" Nullable="false" />
+          <Property Name="BloodGroupId" Type="int" Nullable="false" />
+          <Property Name="CityId" Type="int" Nullable="false" />
+          <Property Name="SubCityId" Type="int" Nullable="false" />
+          <Property Name="NId" Type="varchar" MaxLength="20" />
+          <Property Name="Skype" Type="varchar" MaxLength="50" />
+          <Property Name="Phone" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PassWord" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PatientPhoto" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Solution">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DoctorId" Type="int" Nullable="false" />
+          <Property Name="PatientId" Type="int" Nullable="false" />
+          <Property Name="ProblemName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Solution" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="File1" Type="varchar" MaxLength="200" />
+          <Property Name="File2" Type="varchar" MaxLength="200" />
+          <Property Name="File3" Type="varchar" MaxLength="200" />
+          <Property Name="File4" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Specialization">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SubCity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CityId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Ambulance__CityI__2A4B4B5E">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Ambulance" Type="Self.Ambulance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ambulance">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ambulance__SubCi__2B3F6F97">
+          <End Role="SubCity" Type="Self.SubCity" Multiplicity="1" />
+          <End Role="Ambulance" Type="Self.Ambulance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ambulance">
+              <PropertyRef Name="SubCityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Apointmen__Docto__4AB81AF0">
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="1" />
+          <End Role="Apointment" Type="Self.Apointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Apointment">
+              <PropertyRef Name="DoctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Apointmen__Docto__4E88ABD4">
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="1" />
+          <End Role="ApointmentFixed" Type="Self.ApointmentFixed" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ApointmentFixed">
+              <PropertyRef Name="DoctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Apointmen__Patie__4BAC3F29">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+          <End Role="Apointment" Type="Self.Apointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Apointment">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Apointmen__Patie__4F7CD00D">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+          <End Role="ApointmentFixed" Type="Self.ApointmentFixed" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ApointmentFixed">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BloodDona__Blood__47DBAE45">
+          <End Role="BloodGroup" Type="Self.BloodGroup" Multiplicity="1" />
+          <End Role="BloodDonare" Type="Self.BloodDonare" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BloodGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BloodDonare">
+              <PropertyRef Name="BloodGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BloodDona__CityI__44FF419A">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="BloodDonare" Type="Self.BloodDonare" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BloodDonare">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BloodDona__Gende__46E78A0C">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+          <End Role="BloodDonare" Type="Self.BloodDonare" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BloodDonare">
+              <PropertyRef Name="GenderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BloodDona__SubCi__45F365D3">
+          <End Role="SubCity" Type="Self.SubCity" Multiplicity="1" />
+          <End Role="BloodDonare" Type="Self.BloodDonare" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BloodDonare">
+              <PropertyRef Name="SubCityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DataRecor__Patie__3A81B327">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+          <End Role="DataRecord" Type="Self.DataRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DataRecord">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Doctor__BloodGro__36B12243">
+          <End Role="BloodGroup" Type="Self.BloodGroup" Multiplicity="1" />
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BloodGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Doctor">
+              <PropertyRef Name="BloodGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Doctor__CityId__33D4B598">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Doctor">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Doctor__GenderId__35BCFE0A">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Doctor">
+              <PropertyRef Name="GenderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Doctor__Speciali__37A5467C">
+          <End Role="Specialization" Type="Self.Specialization" Multiplicity="1" />
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Specialization">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Doctor">
+              <PropertyRef Name="SpecializationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Doctor__SubCityI__34C8D9D1">
+          <End Role="SubCity" Type="Self.SubCity" Multiplicity="1" />
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Doctor">
+              <PropertyRef Name="SubCityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Hospital__CityId__239E4DCF">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Hospital" Type="Self.Hospital" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Hospital">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Hospital__SubCIt__22AA2996">
+          <End Role="SubCity" Type="Self.SubCity" Multiplicity="1" />
+          <End Role="Hospital" Type="Self.Hospital" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Hospital">
+              <PropertyRef Name="SubCItyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Medicine__Compan__1FCDBCEB">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="Medicine" Type="Self.Medicine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Medicine">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Medicine__Medici__1ED998B2">
+          <End Role="MedicineGroup" Type="Self.MedicineGroup" Multiplicity="1" />
+          <End Role="Medicine" Type="Self.Medicine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedicineGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Medicine">
+              <PropertyRef Name="MedicineGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Messege__DoctorI__3D5E1FD2">
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="1" />
+          <End Role="Messege" Type="Self.Messege" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Messege">
+              <PropertyRef Name="DoctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Messege__Patient__3E52440B">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+          <End Role="Messege" Type="Self.Messege" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Messege">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Patient__BloodGr__30F848ED">
+          <End Role="BloodGroup" Type="Self.BloodGroup" Multiplicity="1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BloodGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="BloodGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Patient__CityId__2E1BDC42">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Patient__GenderI__300424B4">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="GenderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Patient__SubCity__2F10007B">
+          <End Role="SubCity" Type="Self.SubCity" Multiplicity="1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="SubCityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solution__Doctor__412EB0B6">
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="1" />
+          <End Role="Solution" Type="Self.Solution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Solution">
+              <PropertyRef Name="DoctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solution__Patien__4222D4EF">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+          <End Role="Solution" Type="Self.Solution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Solution">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SubCity__CityId__164452B1">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="SubCity" Type="Self.SubCity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SubCity">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbHCS02ModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ambulance" EntityType="Self.Ambulance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Apointment" EntityType="Self.Apointment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ApointmentFixed" EntityType="Self.ApointmentFixed" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BloodDonare" EntityType="Self.BloodDonare" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BloodGroup" EntityType="Self.BloodGroup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DataRecord" EntityType="Self.DataRecord" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Doctor" EntityType="Self.Doctor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HealthTips" EntityType="Self.HealthTips" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hospital" EntityType="Self.Hospital" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Medicine" EntityType="Self.Medicine" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MedicineGroup" EntityType="Self.MedicineGroup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Messege" EntityType="Self.Messege" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patient" EntityType="Self.Patient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Solution" EntityType="Self.Solution" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Specialization" EntityType="Self.Specialization" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubCity" EntityType="Self.SubCity" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Ambulance__CityI__2A4B4B5E" Association="Self.FK__Ambulance__CityI__2A4B4B5E">
+            <End Role="City" EntitySet="City" />
+            <End Role="Ambulance" EntitySet="Ambulance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ambulance__SubCi__2B3F6F97" Association="Self.FK__Ambulance__SubCi__2B3F6F97">
+            <End Role="SubCity" EntitySet="SubCity" />
+            <End Role="Ambulance" EntitySet="Ambulance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Apointmen__Docto__4AB81AF0" Association="Self.FK__Apointmen__Docto__4AB81AF0">
+            <End Role="Doctor" EntitySet="Doctor" />
+            <End Role="Apointment" EntitySet="Apointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Apointmen__Docto__4E88ABD4" Association="Self.FK__Apointmen__Docto__4E88ABD4">
+            <End Role="Doctor" EntitySet="Doctor" />
+            <End Role="ApointmentFixed" EntitySet="ApointmentFixed" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Apointmen__Patie__4BAC3F29" Association="Self.FK__Apointmen__Patie__4BAC3F29">
+            <End Role="Patient" EntitySet="Patient" />
+            <End Role="Apointment" EntitySet="Apointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Apointmen__Patie__4F7CD00D" Association="Self.FK__Apointmen__Patie__4F7CD00D">
+            <End Role="Patient" EntitySet="Patient" />
+            <End Role="ApointmentFixed" EntitySet="ApointmentFixed" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BloodDona__Blood__47DBAE45" Association="Self.FK__BloodDona__Blood__47DBAE45">
+            <End Role="BloodGroup" EntitySet="BloodGroup" />
+            <End Role="BloodDonare" EntitySet="BloodDonare" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BloodDona__CityI__44FF419A" Association="Self.FK__BloodDona__CityI__44FF419A">
+            <End Role="City" EntitySet="City" />
+            <End Role="BloodDonare" EntitySet="BloodDonare" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BloodDona__Gende__46E78A0C" Association="Self.FK__BloodDona__Gende__46E78A0C">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="BloodDonare" EntitySet="BloodDonare" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BloodDona__SubCi__45F365D3" Association="Self.FK__BloodDona__SubCi__45F365D3">
+            <End Role="SubCity" EntitySet="SubCity" />
+            <End Role="BloodDonare" EntitySet="BloodDonare" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DataRecor__Patie__3A81B327" Association="Self.FK__DataRecor__Patie__3A81B327">
+            <End Role="Patient" EntitySet="Patient" />
+            <End Role="DataRecord" EntitySet="DataRecord" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Doctor__BloodGro__36B12243" Association="Self.FK__Doctor__BloodGro__36B12243">
+            <End Role="BloodGroup" EntitySet="BloodGroup" />
+            <End Role="Doctor" EntitySet="Doctor" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Doctor__CityId__33D4B598" Association="Self.FK__Doctor__CityId__33D4B598">
+            <End Role="City" EntitySet="City" />
+            <End Role="Doctor" EntitySet="Doctor" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Doctor__GenderId__35BCFE0A" Association="Self.FK__Doctor__GenderId__35BCFE0A">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Doctor" EntitySet="Doctor" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Doctor__Speciali__37A5467C" Association="Self.FK__Doctor__Speciali__37A5467C">
+            <End Role="Specialization" EntitySet="Specialization" />
+            <End Role="Doctor" EntitySet="Doctor" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Doctor__SubCityI__34C8D9D1" Association="Self.FK__Doctor__SubCityI__34C8D9D1">
+            <End Role="SubCity" EntitySet="SubCity" />
+            <End Role="Doctor" EntitySet="Doctor" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Hospital__CityId__239E4DCF" Association="Self.FK__Hospital__CityId__239E4DCF">
+            <End Role="City" EntitySet="City" />
+            <End Role="Hospital" EntitySet="Hospital" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Hospital__SubCIt__22AA2996" Association="Self.FK__Hospital__SubCIt__22AA2996">
+            <End Role="SubCity" EntitySet="SubCity" />
+            <End Role="Hospital" EntitySet="Hospital" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Medicine__Compan__1FCDBCEB" Association="Self.FK__Medicine__Compan__1FCDBCEB">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Medicine" EntitySet="Medicine" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Medicine__Medici__1ED998B2" Association="Self.FK__Medicine__Medici__1ED998B2">
+            <End Role="MedicineGroup" EntitySet="MedicineGroup" />
+            <End Role="Medicine" EntitySet="Medicine" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Messege__DoctorI__3D5E1FD2" Association="Self.FK__Messege__DoctorI__3D5E1FD2">
+            <End Role="Doctor" EntitySet="Doctor" />
+            <End Role="Messege" EntitySet="Messege" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Messege__Patient__3E52440B" Association="Self.FK__Messege__Patient__3E52440B">
+            <End Role="Patient" EntitySet="Patient" />
+            <End Role="Messege" EntitySet="Messege" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Patient__BloodGr__30F848ED" Association="Self.FK__Patient__BloodGr__30F848ED">
+            <End Role="BloodGroup" EntitySet="BloodGroup" />
+            <End Role="Patient" EntitySet="Patient" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Patient__CityId__2E1BDC42" Association="Self.FK__Patient__CityId__2E1BDC42">
+            <End Role="City" EntitySet="City" />
+            <End Role="Patient" EntitySet="Patient" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Patient__GenderI__300424B4" Association="Self.FK__Patient__GenderI__300424B4">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Patient" EntitySet="Patient" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Patient__SubCity__2F10007B" Association="Self.FK__Patient__SubCity__2F10007B">
+            <End Role="SubCity" EntitySet="SubCity" />
+            <End Role="Patient" EntitySet="Patient" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solution__Doctor__412EB0B6" Association="Self.FK__Solution__Doctor__412EB0B6">
+            <End Role="Doctor" EntitySet="Doctor" />
+            <End Role="Solution" EntitySet="Solution" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solution__Patien__4222D4EF" Association="Self.FK__Solution__Patien__4222D4EF">
+            <End Role="Patient" EntitySet="Patient" />
+            <End Role="Solution" EntitySet="Solution" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SubCity__CityId__164452B1" Association="Self.FK__SubCity__CityId__164452B1">
+            <End Role="City" EntitySet="City" />
+            <End Role="SubCity" EntitySet="SubCity" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbHCS02Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PassWord" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Level" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ambulance">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DriverName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="SubCityId" Type="Int32" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CarNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Hospital" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="City" Relationship="Self.FK__Ambulance__CityI__2A4B4B5E" FromRole="Ambulance" ToRole="City" />
+          <NavigationProperty Name="SubCity" Relationship="Self.FK__Ambulance__SubCi__2B3F6F97" FromRole="Ambulance" ToRole="SubCity" />
+        </EntityType>
+        <EntityType Name="Apointment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DoctorId" Type="Int32" Nullable="false" />
+          <Property Name="PatientId" Type="Int32" Nullable="false" />
+          <Property Name="ProblemName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Doctor" Relationship="Self.FK__Apointmen__Docto__4AB81AF0" FromRole="Apointment" ToRole="Doctor" />
+          <NavigationProperty Name="Patient" Relationship="Self.FK__Apointmen__Patie__4BAC3F29" FromRole="Apointment" ToRole="Patient" />
+        </EntityType>
+        <EntityType Name="ApointmentFixed">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DoctorId" Type="Int32" Nullable="false" />
+          <Property Name="PatientId" Type="Int32" Nullable="false" />
+          <Property Name="Location" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Time" Type="Time" Precision="7" />
+          <NavigationProperty Name="Doctor" Relationship="Self.FK__Apointmen__Docto__4E88ABD4" FromRole="ApointmentFixed" ToRole="Doctor" />
+          <NavigationProperty Name="Patient" Relationship="Self.FK__Apointmen__Patie__4F7CD00D" FromRole="ApointmentFixed" ToRole="Patient" />
+        </EntityType>
+        <EntityType Name="BloodDonare">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GenderId" Type="Int32" Nullable="false" />
+          <Property Name="BloodGroupId" Type="Int32" Nullable="false" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="SubCityId" Type="Int32" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="BloodGroup" Relationship="Self.FK__BloodDona__Blood__47DBAE45" FromRole="BloodDonare" ToRole="BloodGroup" />
+          <NavigationProperty Name="City" Relationship="Self.FK__BloodDona__CityI__44FF419A" FromRole="BloodDonare" ToRole="City" />
+          <NavigationProperty Name="Gender" Relationship="Self.FK__BloodDona__Gende__46E78A0C" FromRole="BloodDonare" ToRole="Gender" />
+          <NavigationProperty Name="SubCity" Relationship="Self.FK__BloodDona__SubCi__45F365D3" FromRole="BloodDonare" ToRole="SubCity" />
+        </EntityType>
+        <EntityType Name="BloodGroup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="BloodDonares" Relationship="Self.FK__BloodDona__Blood__47DBAE45" FromRole="BloodGroup" ToRole="BloodDonare" />
+          <NavigationProperty Name="Doctors" Relationship="Self.FK__Doctor__BloodGro__36B12243" FromRole="BloodGroup" ToRole="Doctor" />
+          <NavigationProperty Name="Patients" Relationship="Self.FK__Patient__BloodGr__30F848ED" FromRole="BloodGroup" ToRole="Patient" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Ambulances" Relationship="Self.FK__Ambulance__CityI__2A4B4B5E" FromRole="City" ToRole="Ambulance" />
+          <NavigationProperty Name="BloodDonares" Relationship="Self.FK__BloodDona__CityI__44FF419A" FromRole="City" ToRole="BloodDonare" />
+          <NavigationProperty Name="Doctors" Relationship="Self.FK__Doctor__CityId__33D4B598" FromRole="City" ToRole="Doctor" />
+          <NavigationProperty Name="Hospitals" Relationship="Self.FK__Hospital__CityId__239E4DCF" FromRole="City" ToRole="Hospital" />
+          <NavigationProperty Name="Patients" Relationship="Self.FK__Patient__CityId__2E1BDC42" FromRole="City" ToRole="Patient" />
+          <NavigationProperty Name="SubCities" Relationship="Self.FK__SubCity__CityId__164452B1" FromRole="City" ToRole="SubCity" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Medicines" Relationship="Self.FK__Medicine__Compan__1FCDBCEB" FromRole="Company" ToRole="Medicine" />
+        </EntityType>
+        <EntityType Name="DataRecord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientId" Type="Int32" Nullable="false" />
+          <Property Name="ProblemDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="PrescriptionImg" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ReportImag" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Details" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Patient" Relationship="Self.FK__DataRecor__Patie__3A81B327" FromRole="DataRecord" ToRole="Patient" />
+        </EntityType>
+        <EntityType Name="Doctor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+          <Property Name="GenderId" Type="Int32" Nullable="false" />
+          <Property Name="BloodGroupId" Type="Int32" Nullable="false" />
+          <Property Name="BMDC_NO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SpecializationId" Type="Int32" Nullable="false" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="SubCityId" Type="Int32" Nullable="false" />
+          <Property Name="NId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Skype" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Hospital" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ChemberAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PassWord" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DoctorPhoto" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Apointments" Relationship="Self.FK__Apointmen__Docto__4AB81AF0" FromRole="Doctor" ToRole="Apointment" />
+          <NavigationProperty Name="ApointmentFixeds" Relationship="Self.FK__Apointmen__Docto__4E88ABD4" FromRole="Doctor" ToRole="ApointmentFixed" />
+          <NavigationProperty Name="BloodGroup" Relationship="Self.FK__Doctor__BloodGro__36B12243" FromRole="Doctor" ToRole="BloodGroup" />
+          <NavigationProperty Name="City" Relationship="Self.FK__Doctor__CityId__33D4B598" FromRole="Doctor" ToRole="City" />
+          <NavigationProperty Name="Gender" Relationship="Self.FK__Doctor__GenderId__35BCFE0A" FromRole="Doctor" ToRole="Gender" />
+          <NavigationProperty Name="Specialization" Relationship="Self.FK__Doctor__Speciali__37A5467C" FromRole="Doctor" ToRole="Specialization" />
+          <NavigationProperty Name="SubCity" Relationship="Self.FK__Doctor__SubCityI__34C8D9D1" FromRole="Doctor" ToRole="SubCity" />
+          <NavigationProperty Name="Messeges" Relationship="Self.FK__Messege__DoctorI__3D5E1FD2" FromRole="Doctor" ToRole="Messege" />
+          <NavigationProperty Name="Solutions" Relationship="Self.FK__Solution__Doctor__412EB0B6" FromRole="Doctor" ToRole="Solution" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="BloodDonares" Relationship="Self.FK__BloodDona__Gende__46E78A0C" FromRole="Gender" ToRole="BloodDonare" />
+          <NavigationProperty Name="Doctors" Relationship="Self.FK__Doctor__GenderId__35BCFE0A" FromRole="Gender" ToRole="Doctor" />
+          <NavigationProperty Name="Patients" Relationship="Self.FK__Patient__GenderI__300424B4" FromRole="Gender" ToRole="Patient" />
+        </EntityType>
+        <EntityType Name="HealthTip">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Details" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Hospital">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="SubCItyId" Type="Int32" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="WebSite" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Specialization" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Details" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="City" Relationship="Self.FK__Hospital__CityId__239E4DCF" FromRole="Hospital" ToRole="City" />
+          <NavigationProperty Name="SubCity" Relationship="Self.FK__Hospital__SubCIt__22AA2996" FromRole="Hospital" ToRole="SubCity" />
+        </EntityType>
+        <EntityType Name="Medicine">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MedicineGroupId" Type="Int32" Nullable="false" />
+          <Property Name="CompanyId" Type="Int32" Nullable="false" />
+          <Property Name="Details" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Company" Relationship="Self.FK__Medicine__Compan__1FCDBCEB" FromRole="Medicine" ToRole="Company" />
+          <NavigationProperty Name="MedicineGroup" Relationship="Self.FK__Medicine__Medici__1ED998B2" FromRole="Medicine" ToRole="MedicineGroup" />
+        </EntityType>
+        <EntityType Name="MedicineGroup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Medicines" Relationship="Self.FK__Medicine__Medici__1ED998B2" FromRole="MedicineGroup" ToRole="Medicine" />
+        </EntityType>
+        <EntityType Name="Messege">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DoctorId" Type="Int32" Nullable="false" />
+          <Property Name="PatientId" Type="Int32" Nullable="false" />
+          <Property Name="ProblemName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProblemDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Details" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="File1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="File2" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="File3" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="File4" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Doctor" Relationship="Self.FK__Messege__DoctorI__3D5E1FD2" FromRole="Messege" ToRole="Doctor" />
+          <NavigationProperty Name="Patient" Relationship="Self.FK__Messege__Patient__3E52440B" FromRole="Messege" ToRole="Patient" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="GenderId" Type="Int32" Nullable="false" />
+          <Property Name="BloodGroupId" Type="Int32" Nullable="false" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="SubCityId" Type="Int32" Nullable="false" />
+          <Property Name="NId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Skype" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PassWord" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PatientPhoto" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Apointments" Relationship="Self.FK__Apointmen__Patie__4BAC3F29" FromRole="Patient" ToRole="Apointment" />
+          <NavigationProperty Name="ApointmentFixeds" Relationship="Self.FK__Apointmen__Patie__4F7CD00D" FromRole="Patient" ToRole="ApointmentFixed" />
+          <NavigationProperty Name="BloodGroup" Relationship="Self.FK__Patient__BloodGr__30F848ED" FromRole="Patient" ToRole="BloodGroup" />
+          <NavigationProperty Name="City" Relationship="Self.FK__Patient__CityId__2E1BDC42" FromRole="Patient" ToRole="City" />
+          <NavigationProperty Name="DataRecords" Relationship="Self.FK__DataRecor__Patie__3A81B327" FromRole="Patient" ToRole="DataRecord" />
+          <NavigationProperty Name="Gender" Relationship="Self.FK__Patient__GenderI__300424B4" FromRole="Patient" ToRole="Gender" />
+          <NavigationProperty Name="Messeges" Relationship="Self.FK__Messege__Patient__3E52440B" FromRole="Patient" ToRole="Messege" />
+          <NavigationProperty Name="SubCity" Relationship="Self.FK__Patient__SubCity__2F10007B" FromRole="Patient" ToRole="SubCity" />
+          <NavigationProperty Name="Solutions" Relationship="Self.FK__Solution__Patien__4222D4EF" FromRole="Patient" ToRole="Solution" />
+        </EntityType>
+        <EntityType Name="Solution">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DoctorId" Type="Int32" Nullable="false" />
+          <Property Name="PatientId" Type="Int32" Nullable="false" />
+          <Property Name="ProblemName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Solution1" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="File1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="File2" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="File3" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="File4" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Doctor" Relationship="Self.FK__Solution__Doctor__412EB0B6" FromRole="Solution" ToRole="Doctor" />
+          <NavigationProperty Name="Patient" Relationship="Self.FK__Solution__Patien__4222D4EF" FromRole="Solution" ToRole="Patient" />
+        </EntityType>
+        <EntityType Name="Specialization">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Doctors" Relationship="Self.FK__Doctor__Speciali__37A5467C" FromRole="Specialization" ToRole="Doctor" />
+        </EntityType>
+        <EntityType Name="SubCity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Ambulances" Relationship="Self.FK__Ambulance__SubCi__2B3F6F97" FromRole="SubCity" ToRole="Ambulance" />
+          <NavigationProperty Name="BloodDonares" Relationship="Self.FK__BloodDona__SubCi__45F365D3" FromRole="SubCity" ToRole="BloodDonare" />
+          <NavigationProperty Name="City" Relationship="Self.FK__SubCity__CityId__164452B1" FromRole="SubCity" ToRole="City" />
+          <NavigationProperty Name="Doctors" Relationship="Self.FK__Doctor__SubCityI__34C8D9D1" FromRole="SubCity" ToRole="Doctor" />
+          <NavigationProperty Name="Hospitals" Relationship="Self.FK__Hospital__SubCIt__22AA2996" FromRole="SubCity" ToRole="Hospital" />
+          <NavigationProperty Name="Patients" Relationship="Self.FK__Patient__SubCity__2F10007B" FromRole="SubCity" ToRole="Patient" />
+        </EntityType>
+        <Association Name="FK__Ambulance__CityI__2A4B4B5E">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Ambulance" Type="Self.Ambulance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ambulance">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ambulance__SubCi__2B3F6F97">
+          <End Role="SubCity" Type="Self.SubCity" Multiplicity="1" />
+          <End Role="Ambulance" Type="Self.Ambulance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ambulance">
+              <PropertyRef Name="SubCityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Apointmen__Docto__4AB81AF0">
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="1" />
+          <End Role="Apointment" Type="Self.Apointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Apointment">
+              <PropertyRef Name="DoctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Apointmen__Patie__4BAC3F29">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+          <End Role="Apointment" Type="Self.Apointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Apointment">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Apointmen__Docto__4E88ABD4">
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="1" />
+          <End Role="ApointmentFixed" Type="Self.ApointmentFixed" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ApointmentFixed">
+              <PropertyRef Name="DoctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Apointmen__Patie__4F7CD00D">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+          <End Role="ApointmentFixed" Type="Self.ApointmentFixed" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ApointmentFixed">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BloodDona__Blood__47DBAE45">
+          <End Role="BloodGroup" Type="Self.BloodGroup" Multiplicity="1" />
+          <End Role="BloodDonare" Type="Self.BloodDonare" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BloodGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BloodDonare">
+              <PropertyRef Name="BloodGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BloodDona__CityI__44FF419A">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="BloodDonare" Type="Self.BloodDonare" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BloodDonare">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BloodDona__Gende__46E78A0C">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+          <End Role="BloodDonare" Type="Self.BloodDonare" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BloodDonare">
+              <PropertyRef Name="GenderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BloodDona__SubCi__45F365D3">
+          <End Role="SubCity" Type="Self.SubCity" Multiplicity="1" />
+          <End Role="BloodDonare" Type="Self.BloodDonare" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BloodDonare">
+              <PropertyRef Name="SubCityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Doctor__BloodGro__36B12243">
+          <End Role="BloodGroup" Type="Self.BloodGroup" Multiplicity="1" />
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BloodGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Doctor">
+              <PropertyRef Name="BloodGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Patient__BloodGr__30F848ED">
+          <End Role="BloodGroup" Type="Self.BloodGroup" Multiplicity="1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BloodGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="BloodGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Doctor__CityId__33D4B598">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Doctor">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Hospital__CityId__239E4DCF">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Hospital" Type="Self.Hospital" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Hospital">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Patient__CityId__2E1BDC42">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SubCity__CityId__164452B1">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="SubCity" Type="Self.SubCity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SubCity">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Medicine__Compan__1FCDBCEB">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="Medicine" Type="Self.Medicine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Medicine">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DataRecor__Patie__3A81B327">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+          <End Role="DataRecord" Type="Self.DataRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DataRecord">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Doctor__GenderId__35BCFE0A">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Doctor">
+              <PropertyRef Name="GenderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Doctor__Speciali__37A5467C">
+          <End Role="Specialization" Type="Self.Specialization" Multiplicity="1" />
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Specialization">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Doctor">
+              <PropertyRef Name="SpecializationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Doctor__SubCityI__34C8D9D1">
+          <End Role="SubCity" Type="Self.SubCity" Multiplicity="1" />
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Doctor">
+              <PropertyRef Name="SubCityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Messege__DoctorI__3D5E1FD2">
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="1" />
+          <End Role="Messege" Type="Self.Messege" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Messege">
+              <PropertyRef Name="DoctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solution__Doctor__412EB0B6">
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="1" />
+          <End Role="Solution" Type="Self.Solution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Solution">
+              <PropertyRef Name="DoctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Patient__GenderI__300424B4">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="GenderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Hospital__SubCIt__22AA2996">
+          <End Role="SubCity" Type="Self.SubCity" Multiplicity="1" />
+          <End Role="Hospital" Type="Self.Hospital" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Hospital">
+              <PropertyRef Name="SubCItyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Medicine__Medici__1ED998B2">
+          <End Role="MedicineGroup" Type="Self.MedicineGroup" Multiplicity="1" />
+          <End Role="Medicine" Type="Self.Medicine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedicineGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Medicine">
+              <PropertyRef Name="MedicineGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Messege__Patient__3E52440B">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+          <End Role="Messege" Type="Self.Messege" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Messege">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Patient__SubCity__2F10007B">
+          <End Role="SubCity" Type="Self.SubCity" Multiplicity="1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="SubCityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solution__Patien__4222D4EF">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+          <End Role="Solution" Type="Self.Solution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Solution">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbHCS02Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admins" EntityType="Self.Admin" />
+          <EntitySet Name="Ambulances" EntityType="Self.Ambulance" />
+          <EntitySet Name="Apointments" EntityType="Self.Apointment" />
+          <EntitySet Name="ApointmentFixeds" EntityType="Self.ApointmentFixed" />
+          <EntitySet Name="BloodDonares" EntityType="Self.BloodDonare" />
+          <EntitySet Name="BloodGroups" EntityType="Self.BloodGroup" />
+          <EntitySet Name="Cities" EntityType="Self.City" />
+          <EntitySet Name="Companies" EntityType="Self.Company" />
+          <EntitySet Name="DataRecords" EntityType="Self.DataRecord" />
+          <EntitySet Name="Doctors" EntityType="Self.Doctor" />
+          <EntitySet Name="Genders" EntityType="Self.Gender" />
+          <EntitySet Name="HealthTips" EntityType="Self.HealthTip" />
+          <EntitySet Name="Hospitals" EntityType="Self.Hospital" />
+          <EntitySet Name="Medicines" EntityType="Self.Medicine" />
+          <EntitySet Name="MedicineGroups" EntityType="Self.MedicineGroup" />
+          <EntitySet Name="Messeges" EntityType="Self.Messege" />
+          <EntitySet Name="Patients" EntityType="Self.Patient" />
+          <EntitySet Name="Solutions" EntityType="Self.Solution" />
+          <EntitySet Name="Specializations" EntityType="Self.Specialization" />
+          <EntitySet Name="SubCities" EntityType="Self.SubCity" />
+          <AssociationSet Name="FK__Ambulance__CityI__2A4B4B5E" Association="Self.FK__Ambulance__CityI__2A4B4B5E">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Ambulance" EntitySet="Ambulances" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ambulance__SubCi__2B3F6F97" Association="Self.FK__Ambulance__SubCi__2B3F6F97">
+            <End Role="SubCity" EntitySet="SubCities" />
+            <End Role="Ambulance" EntitySet="Ambulances" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Apointmen__Docto__4AB81AF0" Association="Self.FK__Apointmen__Docto__4AB81AF0">
+            <End Role="Doctor" EntitySet="Doctors" />
+            <End Role="Apointment" EntitySet="Apointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Apointmen__Patie__4BAC3F29" Association="Self.FK__Apointmen__Patie__4BAC3F29">
+            <End Role="Patient" EntitySet="Patients" />
+            <End Role="Apointment" EntitySet="Apointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Apointmen__Docto__4E88ABD4" Association="Self.FK__Apointmen__Docto__4E88ABD4">
+            <End Role="Doctor" EntitySet="Doctors" />
+            <End Role="ApointmentFixed" EntitySet="ApointmentFixeds" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Apointmen__Patie__4F7CD00D" Association="Self.FK__Apointmen__Patie__4F7CD00D">
+            <End Role="Patient" EntitySet="Patients" />
+            <End Role="ApointmentFixed" EntitySet="ApointmentFixeds" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BloodDona__Blood__47DBAE45" Association="Self.FK__BloodDona__Blood__47DBAE45">
+            <End Role="BloodGroup" EntitySet="BloodGroups" />
+            <End Role="BloodDonare" EntitySet="BloodDonares" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BloodDona__CityI__44FF419A" Association="Self.FK__BloodDona__CityI__44FF419A">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="BloodDonare" EntitySet="BloodDonares" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BloodDona__Gende__46E78A0C" Association="Self.FK__BloodDona__Gende__46E78A0C">
+            <End Role="Gender" EntitySet="Genders" />
+            <End Role="BloodDonare" EntitySet="BloodDonares" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BloodDona__SubCi__45F365D3" Association="Self.FK__BloodDona__SubCi__45F365D3">
+            <End Role="SubCity" EntitySet="SubCities" />
+            <End Role="BloodDonare" EntitySet="BloodDonares" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Doctor__BloodGro__36B12243" Association="Self.FK__Doctor__BloodGro__36B12243">
+            <End Role="BloodGroup" EntitySet="BloodGroups" />
+            <End Role="Doctor" EntitySet="Doctors" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Patient__BloodGr__30F848ED" Association="Self.FK__Patient__BloodGr__30F848ED">
+            <End Role="BloodGroup" EntitySet="BloodGroups" />
+            <End Role="Patient" EntitySet="Patients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Doctor__CityId__33D4B598" Association="Self.FK__Doctor__CityId__33D4B598">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Doctor" EntitySet="Doctors" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Hospital__CityId__239E4DCF" Association="Self.FK__Hospital__CityId__239E4DCF">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Hospital" EntitySet="Hospitals" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Patient__CityId__2E1BDC42" Association="Self.FK__Patient__CityId__2E1BDC42">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Patient" EntitySet="Patients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SubCity__CityId__164452B1" Association="Self.FK__SubCity__CityId__164452B1">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="SubCity" EntitySet="SubCities" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Medicine__Compan__1FCDBCEB" Association="Self.FK__Medicine__Compan__1FCDBCEB">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Medicine" EntitySet="Medicines" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DataRecor__Patie__3A81B327" Association="Self.FK__DataRecor__Patie__3A81B327">
+            <End Role="Patient" EntitySet="Patients" />
+            <End Role="DataRecord" EntitySet="DataRecords" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Doctor__GenderId__35BCFE0A" Association="Self.FK__Doctor__GenderId__35BCFE0A">
+            <End Role="Gender" EntitySet="Genders" />
+            <End Role="Doctor" EntitySet="Doctors" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Doctor__Speciali__37A5467C" Association="Self.FK__Doctor__Speciali__37A5467C">
+            <End Role="Specialization" EntitySet="Specializations" />
+            <End Role="Doctor" EntitySet="Doctors" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Doctor__SubCityI__34C8D9D1" Association="Self.FK__Doctor__SubCityI__34C8D9D1">
+            <End Role="SubCity" EntitySet="SubCities" />
+            <End Role="Doctor" EntitySet="Doctors" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Messege__DoctorI__3D5E1FD2" Association="Self.FK__Messege__DoctorI__3D5E1FD2">
+            <End Role="Doctor" EntitySet="Doctors" />
+            <End Role="Messege" EntitySet="Messeges" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solution__Doctor__412EB0B6" Association="Self.FK__Solution__Doctor__412EB0B6">
+            <End Role="Doctor" EntitySet="Doctors" />
+            <End Role="Solution" EntitySet="Solutions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Patient__GenderI__300424B4" Association="Self.FK__Patient__GenderI__300424B4">
+            <End Role="Gender" EntitySet="Genders" />
+            <End Role="Patient" EntitySet="Patients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Hospital__SubCIt__22AA2996" Association="Self.FK__Hospital__SubCIt__22AA2996">
+            <End Role="SubCity" EntitySet="SubCities" />
+            <End Role="Hospital" EntitySet="Hospitals" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Medicine__Medici__1ED998B2" Association="Self.FK__Medicine__Medici__1ED998B2">
+            <End Role="MedicineGroup" EntitySet="MedicineGroups" />
+            <End Role="Medicine" EntitySet="Medicines" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Messege__Patient__3E52440B" Association="Self.FK__Messege__Patient__3E52440B">
+            <End Role="Patient" EntitySet="Patients" />
+            <End Role="Messege" EntitySet="Messeges" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Patient__SubCity__2F10007B" Association="Self.FK__Patient__SubCity__2F10007B">
+            <End Role="SubCity" EntitySet="SubCities" />
+            <End Role="Patient" EntitySet="Patients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solution__Patien__4222D4EF" Association="Self.FK__Solution__Patien__4222D4EF">
+            <End Role="Patient" EntitySet="Patients" />
+            <End Role="Solution" EntitySet="Solutions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbHCS02ModelStoreContainer" CdmEntityContainer="dbHCS02Entities">
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="dbHCS02Model.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ambulances">
+            <EntityTypeMapping TypeName="dbHCS02Model.Ambulance">
+              <MappingFragment StoreEntitySet="Ambulance">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DriverName" ColumnName="DriverName" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="SubCityId" ColumnName="SubCityId" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="CarNumber" ColumnName="CarNumber" />
+                <ScalarProperty Name="Hospital" ColumnName="Hospital" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Apointments">
+            <EntityTypeMapping TypeName="dbHCS02Model.Apointment">
+              <MappingFragment StoreEntitySet="Apointment">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="ProblemName" ColumnName="ProblemName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ApointmentFixeds">
+            <EntityTypeMapping TypeName="dbHCS02Model.ApointmentFixed">
+              <MappingFragment StoreEntitySet="ApointmentFixed">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BloodDonares">
+            <EntityTypeMapping TypeName="dbHCS02Model.BloodDonare">
+              <MappingFragment StoreEntitySet="BloodDonare">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+                <ScalarProperty Name="BloodGroupId" ColumnName="BloodGroupId" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="SubCityId" ColumnName="SubCityId" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BloodGroups">
+            <EntityTypeMapping TypeName="dbHCS02Model.BloodGroup">
+              <MappingFragment StoreEntitySet="BloodGroup">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="dbHCS02Model.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="dbHCS02Model.Company">
+              <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DataRecords">
+            <EntityTypeMapping TypeName="dbHCS02Model.DataRecord">
+              <MappingFragment StoreEntitySet="DataRecord">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="ProblemDate" ColumnName="ProblemDate" />
+                <ScalarProperty Name="PrescriptionImg" ColumnName="PrescriptionImg" />
+                <ScalarProperty Name="ReportImag" ColumnName="ReportImag" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Doctors">
+            <EntityTypeMapping TypeName="dbHCS02Model.Doctor">
+              <MappingFragment StoreEntitySet="Doctor">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+                <ScalarProperty Name="BloodGroupId" ColumnName="BloodGroupId" />
+                <ScalarProperty Name="BMDC_NO" ColumnName="BMDC_NO" />
+                <ScalarProperty Name="SpecializationId" ColumnName="SpecializationId" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="SubCityId" ColumnName="SubCityId" />
+                <ScalarProperty Name="NId" ColumnName="NId" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Skype" ColumnName="Skype" />
+                <ScalarProperty Name="Hospital" ColumnName="Hospital" />
+                <ScalarProperty Name="ChemberAddress" ColumnName="ChemberAddress" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+                <ScalarProperty Name="DoctorPhoto" ColumnName="DoctorPhoto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genders">
+            <EntityTypeMapping TypeName="dbHCS02Model.Gender">
+              <MappingFragment StoreEntitySet="Gender">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HealthTips">
+            <EntityTypeMapping TypeName="dbHCS02Model.HealthTip">
+              <MappingFragment StoreEntitySet="HealthTips">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hospitals">
+            <EntityTypeMapping TypeName="dbHCS02Model.Hospital">
+              <MappingFragment StoreEntitySet="Hospital">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="SubCItyId" ColumnName="SubCItyId" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="WebSite" ColumnName="WebSite" />
+                <ScalarProperty Name="Specialization" ColumnName="Specialization" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Medicines">
+            <EntityTypeMapping TypeName="dbHCS02Model.Medicine">
+              <MappingFragment StoreEntitySet="Medicine">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="MedicineGroupId" ColumnName="MedicineGroupId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MedicineGroups">
+            <EntityTypeMapping TypeName="dbHCS02Model.MedicineGroup">
+              <MappingFragment StoreEntitySet="MedicineGroup">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Messeges">
+            <EntityTypeMapping TypeName="dbHCS02Model.Messege">
+              <MappingFragment StoreEntitySet="Messege">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="ProblemName" ColumnName="ProblemName" />
+                <ScalarProperty Name="ProblemDate" ColumnName="ProblemDate" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="File1" ColumnName="File1" />
+                <ScalarProperty Name="File2" ColumnName="File2" />
+                <ScalarProperty Name="File3" ColumnName="File3" />
+                <ScalarProperty Name="File4" ColumnName="File4" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patients">
+            <EntityTypeMapping TypeName="dbHCS02Model.Patient">
+              <MappingFragment StoreEntitySet="Patient">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+                <ScalarProperty Name="BloodGroupId" ColumnName="BloodGroupId" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="SubCityId" ColumnName="SubCityId" />
+                <ScalarProperty Name="NId" ColumnName="NId" />
+                <ScalarProperty Name="Skype" ColumnName="Skype" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+                <ScalarProperty Name="PatientPhoto" ColumnName="PatientPhoto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Solutions">
+            <EntityTypeMapping TypeName="dbHCS02Model.Solution">
+              <MappingFragment StoreEntitySet="Solution">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="ProblemName" ColumnName="ProblemName" />
+                <ScalarProperty Name="Solution1" ColumnName="Solution" />
+                <ScalarProperty Name="File1" ColumnName="File1" />
+                <ScalarProperty Name="File2" ColumnName="File2" />
+                <ScalarProperty Name="File3" ColumnName="File3" />
+                <ScalarProperty Name="File4" ColumnName="File4" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Specializations">
+            <EntityTypeMapping TypeName="dbHCS02Model.Specialization">
+              <MappingFragment StoreEntitySet="Specialization">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubCities">
+            <EntityTypeMapping TypeName="dbHCS02Model.SubCity">
+              <MappingFragment StoreEntitySet="SubCity">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

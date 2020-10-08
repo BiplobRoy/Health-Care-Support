@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .dropbtn {
+            background-color: #101010;
+            color: #9d9d9d;
+            padding: 15px;
+            font-size: 16px;
+            border: none;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #101010;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+            .dropdown-content a {
+                color: #9d9d9d;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+
+                .dropdown-content a:hover {
+                    color: white;
+                }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            color: white;
+        }
+    </style>
+</head>
+
+
+@if (Session["Adlogin"].ToString() == "" && Session["Dologin"].ToString() == "" && Session["Palogin"].ToString() == "")
+{
+    <ul class="nav navbar-nav navbar-right">
+
+        <li>
+            <div class="dropdown">
+                <button class="dropbtn">Login</button>
+                <div class="dropdown-content">
+                    <a href="http://localhost:11391/Patient/PaLogin">Patient</a>
+                    <a href="http://localhost:11391/Doctor/DoLogin">Doctor</a>
+                    <a href="http://localhost:11391/Admin/AdLogin">Admin</a>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="dropdown">
+                <button class="dropbtn">Create Account</button>
+                <div class="dropdown-content">
+                    <a href="http://localhost:11391/Patient/Create">Patient</a>
+                    <a href="http://localhost:11391/Doctor/Create">Doctor</a>
+                    @*<a href="http://localhost:11391/Patient/Create">Admin</a>*@
+                </div>
+            </div>
+        </li>
+    </ul>
+}
+else if (Session["Adlogin"].ToString() != "")
+{
+
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="@Url.Action("Details", "Admin", new { id = ((HealthCareSupport02.Models.Admin)Session["Ad"]).Id })">Admin</a></li>
+        <li>@Html.ActionLink("Logout", "LogOut", "Admin")</li>
+    </ul>
+}
+else if (Session["Dologin"].ToString() != "")
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="@Url.Action("Details", "Doctor", new { id = ((HealthCareSupport02.Models.Doctor)Session["Do"]).Id })">Doctor</a></li>
+        <li>@Html.ActionLink("Logout", "Logout", "Doctor")</li>
+    </ul>
+}
+else if (Session["Palogin"].ToString() != "")
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="@Url.Action("Details", "Patient", new { id = ((HealthCareSupport02.Models.Patient)Session["Pa"]).Id })">Patient</a></li>
+        <li>@Html.ActionLink("Logout", "Logout", "Patient")</li>
+    </ul>
+}

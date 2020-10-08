@@ -1,0 +1,43 @@
+﻿@model HealthCareSupport02.Models.HealthTip
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div>
+    <h4>Health Tips</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Details)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Details)
+        </dd>
+
+    </dl>
+</div>
+@if (Session["Adlogin"].ToString() != "" && Session["Palogin"].ToString() != "")
+{
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
+    </p>
+}
+@if (Session["Adlogin"].ToString() != "")
+{
+    <td>
+        @Html.ActionLink("Delete", "Delete", new { id = Model.Id })
+    </td>
+}
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

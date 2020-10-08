@@ -1,0 +1,67 @@
+﻿@model HealthCareSupport02.Models.Messege
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<div>
+    <h4>Messege</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Doctor.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Doctor.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Patient.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patient.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProblemName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProblemName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProblemDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProblemDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Details)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Details)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.File1)
+        </dt>
+
+        <dd>
+            <img src="~/Upload/File/File1/@(Model.Id.ToString()+"_"+ Model.PatientId.ToString()+ "_" + Model.File1)" class="img-rounded img-responsive" style="height:250px; width:65%" />
+        </dd>
+    </dl>
+</div>
+@if (Session["Dologin"].ToString() != "")
+{
+    <a href="@Url.Action("Create", "Solution", new {dd=Model.Id, p = Model.PatientId, d =((HealthCareSupport02.Models.Doctor)Session["Do"]).Id })">Solution</a>
+}
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

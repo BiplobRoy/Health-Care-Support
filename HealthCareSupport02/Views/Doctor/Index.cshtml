@@ -1,0 +1,163 @@
+﻿@model IEnumerable<HealthCareSupport02.Models.Doctor>
+
+@{
+    ViewBag.Title = "Index";
+}
+<h4>Doctor</h4>
+@using (Html.BeginForm())
+{
+    <div>
+        <table>
+            <tr>
+                <th>
+                    <h4> Specialization: </h4>
+                </th>
+                <th>
+                    @Html.DropDownList("SpecializationId", null, "Select One ", htmlAttributes: new { @class = "form-control" })
+                </th>
+                <th>
+                    <h4> Hospital: </h4>
+                </th>
+                <th>
+                    <input type="text" name="search" id="search" value="@ViewBag.seaarch" />
+                </th>
+                <th>
+                    <input type="submit" value="Search">
+                </th>
+            </tr>
+        </table>
+    </div>
+}
+@*@using (Html.BeginForm())
+{
+    <div>
+        <table>
+            <tr>
+                <th>
+                    <h4> Blood Group: </h4>
+                </th>
+                <th>
+                    @Html.DropDownList("SpecializationId", null, htmlAttributes: new { @class = "form-control" })
+                </th>
+                <th>
+                    <input type="submit" value="Search">
+                </th>
+            </tr>
+        </table>
+    </div>
+}*@
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.DateOfBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BMDC_NO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Skype)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Hospital)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.ChemberAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PassWord)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DoctorPhoto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BloodGroup.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender.Name)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Specialization.Name)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.SubCity.Name)
+            </th>*@
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.DateOfBirth)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BMDC_NO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Skype)
+                </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hospital)
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.ChemberAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PassWord)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DoctorPhoto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BloodGroup.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender.Name)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Specialization.Name)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.SubCity.Name)
+                </td>*@
+
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>

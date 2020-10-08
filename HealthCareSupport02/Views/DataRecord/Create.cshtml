@@ -1,0 +1,73 @@
+﻿@model HealthCareSupport02.Models.DataRecord
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+<form method="post" action="" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>DataRecord</h4>
+        <p>
+            For Using Data Record You Must have a knoladge About your problem and also know the doctor advise. You must provide
+            the prescription photo and Reaport Photo for save the data record. The data record is for future help. Any time you
+            can find the previous problem.
+        </p>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.PatientId, "PatientId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("PatientId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PatientId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProblemDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ProblemDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ProblemDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PrescriptionImg, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="PrescriptionImg" />
+                @Html.ValidationMessageFor(model => model.PrescriptionImg, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ReportImag, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="ReportImag">
+                @Html.ValidationMessageFor(model => model.ReportImag, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Details, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Details, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Details, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+    </form>
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="532d12c035b6465c921636dfda8b5b78" Name="Diagram1">
+        <EntityTypeShape EntityType="dbHCS02Model.Admin" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbHCS02Model.Ambulance" Width="1.5" PointX="5.25" PointY="30.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbHCS02Model.Apointment" Width="1.5" PointX="10.5" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbHCS02Model.ApointmentFixed" Width="1.5" PointX="13.5" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbHCS02Model.BloodDonare" Width="1.5" PointX="8.25" PointY="29.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbHCS02Model.BloodGroup" Width="1.5" PointX="3" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbHCS02Model.City" Width="1.5" PointX="0.75" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbHCS02Model.Company" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbHCS02Model.DataRecord" Width="1.5" PointX="10.5" PointY="25.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbHCS02Model.Doctor" Width="1.5" PointX="5.25" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbHCS02Model.Gender" Width="1.5" PointX="3" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbHCS02Model.HealthTip" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbHCS02Model.Hospital" Width="1.5" PointX="5.25" PointY="34" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbHCS02Model.Medicine" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbHCS02Model.MedicineGroup" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbHCS02Model.Messege" Width="1.5" PointX="13.5" PointY="28.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbHCS02Model.Patient" Width="1.5" PointX="8.25" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbHCS02Model.Solution" Width="1.5" PointX="13.5" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbHCS02Model.Specialization" Width="1.5" PointX="3" PointY="27.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbHCS02Model.SubCity" Width="1.5" PointX="3" PointY="42" IsExpanded="true" />
+        <AssociationConnector Association="dbHCS02Model.FK__Ambulance__CityI__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHCS02Model.FK__Ambulance__SubCi__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHCS02Model.FK__Apointmen__Docto__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHCS02Model.FK__Apointmen__Patie__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHCS02Model.FK__Apointmen__Docto__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHCS02Model.FK__Apointmen__Patie__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHCS02Model.FK__BloodDona__Blood__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHCS02Model.FK__BloodDona__CityI__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHCS02Model.FK__BloodDona__Gende__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHCS02Model.FK__BloodDona__SubCi__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHCS02Model.FK__Doctor__BloodGro__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHCS02Model.FK__Patient__BloodGr__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHCS02Model.FK__Doctor__CityId__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHCS02Model.FK__Hospital__CityId__239E4DCF" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHCS02Model.FK__Patient__CityId__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHCS02Model.FK__SubCity__CityId__164452B1" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHCS02Model.FK__Medicine__Compan__1FCDBCEB" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHCS02Model.FK__DataRecor__Patie__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHCS02Model.FK__Doctor__GenderId__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHCS02Model.FK__Doctor__Speciali__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHCS02Model.FK__Doctor__SubCityI__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHCS02Model.FK__Messege__DoctorI__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHCS02Model.FK__Solution__Doctor__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHCS02Model.FK__Patient__GenderI__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHCS02Model.FK__Hospital__SubCIt__22AA2996" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHCS02Model.FK__Medicine__Medici__1ED998B2" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHCS02Model.FK__Messege__Patient__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHCS02Model.FK__Patient__SubCity__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHCS02Model.FK__Solution__Patien__4222D4EF" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
